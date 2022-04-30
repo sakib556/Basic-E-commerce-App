@@ -1,4 +1,9 @@
-class Stackdata {
+import 'dart:convert';
+List<Product> productFromJson(String str) =>
+    List<Product>.from(json.decode(str)['stackdata'].map((x) => Product.fromJson(x)));
+String productToJson(List<Product> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+class Product {
   String? id;
   String? productName;
   String? price;
@@ -8,7 +13,7 @@ class Stackdata {
   String? productDetails;
   int? stackqty;
 
-  Stackdata(
+  Product(
       {this.id,
         this.productName,
         this.price,
@@ -18,7 +23,7 @@ class Stackdata {
         this.productDetails,
         this.stackqty});
 
-  Stackdata.fromJson(Map<String, dynamic> json) {
+  Product.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     productName = json['product_name'];
     price = json['price'];
