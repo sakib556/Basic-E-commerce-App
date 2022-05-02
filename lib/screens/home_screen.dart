@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/controllers/product_controller.dart';
 import 'package:flutter_ecommerce/custom_widget/product_tile.dart';
+import 'package:flutter_ecommerce/screens/product_sell.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 class HomeScreen extends StatelessWidget {
@@ -8,6 +9,7 @@ class HomeScreen extends StatelessWidget {
   final ProductController productController = Get.put(ProductController());
   @override
   Widget build(BuildContext context) {
+   productController.fetchProducts();
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -26,7 +28,7 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(6),
             child: Row(
               children: [
                 Expanded(
@@ -45,21 +47,38 @@ class HomeScreen extends StatelessWidget {
           ),
           Expanded(
             child: Obx(() {
+              print("start obx");
               if (productController.isLoading.value)
                 return Center(child: CircularProgressIndicator());
               else
                 return StaggeredGridView.countBuilder(
                   crossAxisCount: 2,
                   itemCount: productController.productList.length,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
+                  crossAxisSpacing: 2,
+                  mainAxisSpacing: 2,
                   itemBuilder: (context, index) {
+                    print("start 2 obx");
                     return ProductTile(productController.productList[index]);
                   },
                   staggeredTileBuilder: (index) => StaggeredTile.fit(1),
                 );
             }),
-          )
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text("Do you want to sell your product ?"),
+              SizedBox(width: 10,),
+              GestureDetector(
+                onTap: (){
+                 Get.to(() => ProductSell());
+                },
+                child: CircleAvatar(
+                  child: Icon(Icons.add),),
+              ),
+              SizedBox(width: 15,)
+            ],
+          ),
         ],
       ),
     );

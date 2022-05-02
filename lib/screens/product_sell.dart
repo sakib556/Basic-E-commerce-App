@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/controllers/product_controller.dart';
+import 'package:flutter_ecommerce/models/product.dart';
 import 'package:flutter_ecommerce/screens/home_screen.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 class ProductSell extends StatefulWidget {
   const ProductSell({Key? key}) : super(key: key);
@@ -7,6 +10,7 @@ class ProductSell extends StatefulWidget {
   State<ProductSell> createState() => _ProductSellState();
 }
 class _ProductSellState extends State<ProductSell> {
+  // final ProductController productController = Get.put(ProductController());
   final _fromKey= GlobalKey<FormState>();
   var size,height,width;
   String? pname,pprice,pdiscount,pbrand,pqty,pdetails;
@@ -54,10 +58,11 @@ class _ProductSellState extends State<ProductSell> {
             )),
               ),
             add_data==0? ElevatedButton(
-              onPressed: () {InsertData(); },
+              onPressed: () {
+                InsertData();
+                },
               child: Text('Submit your product'),
             ):CircularProgressIndicator(),
-
           ]
         ),
       ),
@@ -207,6 +212,7 @@ class _ProductSellState extends State<ProductSell> {
       }
     },
   );
+
   Future<void> InsertData() async {
     setState(() {
       add_data=1;
@@ -217,6 +223,6 @@ class _ProductSellState extends State<ProductSell> {
     setState(() {
       add_data=0;
     });
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen(),));
+    Get.off(HomeScreen());
   }
 }
