@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/controllers/product_controller.dart';
-import 'package:flutter_ecommerce/models/product.dart';
-import 'package:flutter_ecommerce/screens/home_screen.dart';
+import 'package:flutter_ecommerce/views/pages/home_screen.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 class ProductSell extends StatefulWidget {
@@ -10,7 +9,7 @@ class ProductSell extends StatefulWidget {
   State<ProductSell> createState() => _ProductSellState();
 }
 class _ProductSellState extends State<ProductSell> {
-  // final ProductController productController = Get.put(ProductController());
+  final ProductController productController = Get.put(ProductController());
   final _fromKey= GlobalKey<FormState>();
   var size,height,width;
   String? pname,pprice,pdiscount,pbrand,pqty,pdetails;
@@ -59,7 +58,7 @@ class _ProductSellState extends State<ProductSell> {
               ),
             add_data==0? ElevatedButton(
               onPressed: () {
-                InsertData();
+                 InsertData();
                 },
               child: Text('Submit your product'),
             ):CircularProgressIndicator(),
@@ -223,6 +222,8 @@ class _ProductSellState extends State<ProductSell> {
     setState(() {
       add_data=0;
     });
+    productController.isLoading.value;
+    await productController.fetchProducts();
     Get.off(HomeScreen());
   }
 }

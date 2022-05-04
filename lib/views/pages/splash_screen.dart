@@ -1,27 +1,19 @@
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/const/AppColors.dart';
-import 'package:flutter_ecommerce/screens/home_screen.dart';
+import 'package:flutter_ecommerce/const/app_colors.dart';
+import 'package:flutter_ecommerce/controllers/splash_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    Timer(Duration(seconds:3),()=>Get.off(HomeScreen()));
-    super.initState();
-  }
+class SplashScreen extends StatelessWidget {
+  SplashScreen({Key? key}) : super(key: key);
+  final SplashController splashController = Get.put(SplashController());
+
   @override
   Widget build(BuildContext context) {
+    splashController.splashTimer();
     return Scaffold(
-      backgroundColor: AppColors.deep_orange,
+      backgroundColor: AppColors.DEEP_ORANGE,
       body: SafeArea(
         child: Center(
           child: Column(

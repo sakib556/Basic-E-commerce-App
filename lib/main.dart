@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/screens/splash_screen.dart';
+import 'package:flutter_ecommerce/views/pages/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 void main() async {
@@ -10,7 +10,7 @@ void main() async {
 }
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  // This widget is the root of your application.
+  // This widgets is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: const SplashScreen(),
+          home: SplashScreen()
         );
       },
     );

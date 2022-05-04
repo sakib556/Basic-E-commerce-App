@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 class UserForm extends StatefulWidget {
   const UserForm({Key? key}) : super(key: key);
   @override
@@ -8,13 +7,13 @@ class UserForm extends StatefulWidget {
 }
 class _UserFormState extends State<UserForm> {
    late DateTime _dateTime;
-   var selected="choose";
+   var selected = "choose";
    TextEditingController _nameController = TextEditingController();
    TextEditingController _phoneController = TextEditingController();
    TextEditingController _dobController = TextEditingController();
    TextEditingController _genderController = TextEditingController();
    TextEditingController _ageController = TextEditingController();
- //  List<String> gender = ["Male", "Female", "Other"];
+ //List<String> gender = ["Male", "Female", "Other"];
    var _genders= ['Male', 'Female', 'Other'];
    var _currentItemSelected=['Male'];
    Future<void> _selectDateFromPicker(BuildContext context) async {

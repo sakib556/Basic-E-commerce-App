@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/controllers/product_controller.dart';
-import 'package:flutter_ecommerce/custom_widget/product_tile.dart';
-import 'package:flutter_ecommerce/screens/product_sell.dart';
+import 'package:flutter_ecommerce/views/widgets/product_tile.dart';
+import 'package:flutter_ecommerce/views/pages/product_sell.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 class HomeScreen extends StatelessWidget {
@@ -9,7 +9,6 @@ class HomeScreen extends StatelessWidget {
   final ProductController productController = Get.put(ProductController());
   @override
   Widget build(BuildContext context) {
-   productController.fetchProducts();
     return Scaffold(
       appBar: AppBar(
         elevation: 0,

@@ -1,12 +1,9 @@
-
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/const/AppColors.dart';
-import 'package:flutter_ecommerce/screens//home_screen.dart';
-import 'package:flutter_ecommerce/screens/registration_screen.dart';
-import 'package:flutter_ecommerce/custom_widget/user_form.dart';
+import 'package:flutter_ecommerce/const/app_colors.dart';
+import 'package:flutter_ecommerce/views/widgets/user_form.dart';
+import 'package:flutter_ecommerce/views/pages/registration_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -49,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.deep_orange,
+      backgroundColor: AppColors.DEEP_ORANGE,
       body: SafeArea(
         child: Column(
           children: [
@@ -100,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Text(
                           "Welcome Back",
                           style: TextStyle(
-                              fontSize: 22.sp, color: AppColors.deep_orange),
+                              fontSize: 22.sp, color: AppColors.DEEP_ORANGE),
                         ),
                         Text(
                           "Glad to see you back my buddy.",
@@ -118,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 48.h,
                               width: 41.w,
                               decoration: BoxDecoration(
-                                  color: AppColors.deep_orange,
+                                  color: AppColors.DEEP_ORANGE,
                                   borderRadius: BorderRadius.circular(12.r)),
                               child: Center(
                                 child: Icon(
@@ -143,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   labelText: 'EMAIL',
                                   labelStyle: TextStyle(
                                     fontSize: 15.sp,
-                                    color: AppColors.deep_orange,
+                                    color: AppColors.DEEP_ORANGE,
                                   ),
                                 ),
                               ),
@@ -159,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 48.h,
                               width: 41.w,
                               decoration: BoxDecoration(
-                                  color: AppColors.deep_orange,
+                                  color: AppColors.DEEP_ORANGE,
                                   borderRadius: BorderRadius.circular(12.r)),
                               child: Center(
                                 child: Icon(
@@ -185,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   labelText: 'PASSWORD',
                                   labelStyle: TextStyle(
                                     fontSize: 15.sp,
-                                    color: AppColors.deep_orange,
+                                    color: AppColors.DEEP_ORANGE,
                                   ),
                                   suffixIcon: _obscureText == true
                                       ? IconButton(
@@ -255,7 +252,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   fontSize: 13.sp,
                                   fontWeight: FontWeight.w600,
-                                  color: AppColors.deep_orange,
+                                  color: AppColors.DEEP_ORANGE,
                                 ),
                               ),
                               onTap: () {

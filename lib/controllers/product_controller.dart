@@ -4,16 +4,10 @@ import 'package:get/state_manager.dart';
 class ProductController extends GetxController {
   var isLoading;
   var productList = <Product>[].obs;
-  // @override
-  // void onInit() {
-  //   fetchProducts();
-  //   print("fetching success");
-  //   super.onInit();
-  // }
   fetchProducts() async {
     isLoading = true.obs;
     print("fetching start");
-      isLoading(true);
+    isLoading(true);
       var products = await RemoteServices.fetchProducts();
       if (products != null) {
         productList.value = products;

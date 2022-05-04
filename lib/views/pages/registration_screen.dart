@@ -1,9 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/custom_widget/user_form.dart';
+import 'package:flutter_ecommerce/views/widgets/user_form.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
   @override
