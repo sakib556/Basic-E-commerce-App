@@ -15,8 +15,8 @@ class _UserFormState extends State<UserForm> {
    TextEditingController _genderController = TextEditingController();
    TextEditingController _ageController = TextEditingController();
  //List<String> gender = ["Male", "Female", "Other"];
-   var _genders= ['Male', 'Female', 'Other'];
-   var _currentItemSelected=['Male'];
+   var _genders = ['Male', 'Female', 'Other'];
+   var _currentItemSelected = ['Male'];
    Future<void> _selectDateFromPicker(BuildContext context) async {
      final DateTime? picked = await showDatePicker(
          context: context,

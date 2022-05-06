@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 class TextField1 extends StatelessWidget {
-  TextField1({this.label,this.hint});
-  //final TextEditingController? controller;
+  TextField1({this.controller, this.label,this.hint,this.icon});
+  final TextEditingController? controller;
   final String? label;
   final String? hint;
-
+  final IconData? icon;
   @override
   Widget build(BuildContext context) {
     return  TextField(
       decoration: InputDecoration(
-          labelText: label,
-          hintText: hint,
+          labelText: null == label ? '': label,
+          hintText: null == hint ? '': hint,
           hintStyle: TextStyle( color :Colors.grey),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          suffixIcon: IconButton(icon: Icon(Icons.input), onPressed: () {  },)
+          suffixIcon: null == icon ? null: Icon(icon)
       ),
     );
   }
