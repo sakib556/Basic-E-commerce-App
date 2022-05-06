@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/views/widgets/text_fields/text_field_1.dart';
 class UserForm extends StatefulWidget {
   const UserForm({Key? key}) : super(key: key);
   @override
@@ -44,21 +45,11 @@ class _UserFormState extends State<UserForm> {
                   Text("Submit the form to continue.",style: TextStyle(color: Colors.black,fontSize: 22),),
                   Text("We will not share your information with anyone.",style: TextStyle(fontSize: 14, color: Color(0xFFBBBBBB))),
                   SizedBox(height: 15,),
-                  TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Full Name',
-                      hintText: 'Enter your Name',
-                      hintStyle: TextStyle( color :Colors.grey),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      suffixIcon: IconButton(icon: Icon(Icons.input), onPressed: () {  },)
-                    ),
-                  ),
+                  TextField1(label: "Name",hint: "Enter your Name",),
                   TextField(
                     decoration: InputDecoration(
                         labelText: 'Phone Number',
-                        hintText: 'Enter your Name',
+                        hintText: 'Enter your phone number',
                         hintStyle: TextStyle( color :Colors.grey),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
