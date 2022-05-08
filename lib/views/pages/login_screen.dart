@@ -1,48 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/const/app_colors.dart';
-import 'package:flutter_ecommerce/views/widgets/user_form.dart';
+import 'package:flutter_ecommerce/controllers/login/login_controller.dart';
 import 'package:flutter_ecommerce/views/pages/registration_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
-  @override
-  _LoginScreenState createState() => _LoginScreenState();
-}
-class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  bool _obscureText = true;
-
-  signIn()async{
-    try {
-      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: _emailController.text,
-          password: _passwordController.text
-      );
-      var authCredential = userCredential.user;
-      print(authCredential!.uid);
-      if(authCredential.uid.isNotEmpty){
-       Navigator.push(context, CupertinoPageRoute(builder: (_)=>UserForm()));
-      }
-      else{
-        Fluttertoast.showToast(msg: "Something is wrong");
-      }
-
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        Fluttertoast.showToast(msg: "No user found for that email.");
-      } else if (e.code == 'wrong-password') {
-        Fluttertoast.showToast(msg: "Wrong password provided for that user.");
-      }
-    } catch (e) {
-      print(e);
-    }
-  }
-
+import 'package:get/get.dart';
+class LoginScreen extends StatelessWidget {
+  LoginScreen({Key? key}) : super(key: key);
+  final LoginController _loginController = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    IconButton(
+                    const IconButton(
                       onPressed: null,
                       icon: Icon(
                         Icons.light,
@@ -94,18 +58,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           height: 20.h,
                         ),
-                        Text(
-                          "Welcome Back",
-                          style: TextStyle(
-                              fontSize: 22.sp, color: AppColors.DEEP_ORANGE),
-                        ),
-                        Text(
-                          "Glad to see you back my buddy.",
-                          style: TextStyle(
+                        Text("Welcome Back", style: TextStyle(
+                              fontSize: 22.sp, color: AppColors.DEEP_ORANGE),),
+                        Text("Glad to see you back my buddy.", style: TextStyle(
                             fontSize: 14.sp,
-                            color: Color(0xFFBBBBBB),
-                          ),
-                        ),
+                            color: const Color(0xFFBBBBBB),
+                          ),),
                         SizedBox(
                           height: 15.h,
                         ),
@@ -130,12 +88,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             Expanded(
                               child: TextField(
-                                controller: _emailController,
+                                controller: _loginController.emailController,
                                 decoration: InputDecoration(
                                   hintText: "enter your email",
                                   hintStyle: TextStyle(
                                     fontSize: 14.sp,
-                                    color: Color(0xFFA0A0A0),
+                                    color: const Color(0xFFA0A0A0),
                                   ),
                                   labelText: 'EMAIL',
                                   labelStyle: TextStyle(
@@ -171,8 +129,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             Expanded(
                               child: TextField(
-                                controller: _passwordController,
-                                obscureText: _obscureText,
+                                controller: _loginController.passwordController,
+                                obscureText: _loginController.obscureText,
                                 decoration: InputDecoration(
                                   hintText: "password must be 6 character",
                                   hintStyle: TextStyle(
@@ -184,12 +142,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                     fontSize: 15.sp,
                                     color: AppColors.DEEP_ORANGE,
                                   ),
-                                  suffixIcon: _obscureText == true
+                                  suffixIcon: _loginController.obscureText == true
                                       ? IconButton(
                                       onPressed: () {
-                                        setState(() {
-                                          _obscureText = false;
-                                        });
+                                        _loginController.obscureText = false;
                                       },
                                       icon: Icon(
                                         Icons.remove_red_eye,
@@ -197,9 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ))
                                       : IconButton(
                                       onPressed: () {
-                                        setState(() {
-                                          _obscureText = true;
-                                        });
+                                        _loginController.obscureText=true;
                                       },
                                       icon: Icon(
                                         Icons.visibility_off,
@@ -214,20 +168,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           height: 50.h,
                         ),
-                      //  elevated button
-                      //   customButton("Sign In", (){
-                      //     signIn();
-                      //   },),
+                        //  elevated button
+                        //   customButton("Sign In", (){
+                        //     signIn();
+                        //   },),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Sign in',style: TextStyle(fontSize: 27, fontWeight: FontWeight.w700,color: Color(0xff4c505b)),),
+                            const Text('Sign in',style: TextStyle(fontSize: 27, fontWeight: FontWeight.w700,color: Color(0xff4c505b)),),
                             CircleAvatar(
                               radius: 30,
                               backgroundColor: Color(0xff4c505b),
                               child: IconButton(
                                 color: Colors.white,
-                                onPressed: (){signIn();},
+                                onPressed: (){_loginController.signIn();},
                                 icon: Icon(Icons.arrow_forward),
                               ),
                             )
@@ -256,11 +210,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               ),
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    CupertinoPageRoute(
-                                        builder: (context) =>
-                                            RegisterScreen()));
+                                Get.put(RegisterScreen());
                               },
                             )
                           ],
@@ -277,3 +227,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
