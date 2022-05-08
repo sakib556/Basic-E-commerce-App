@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/controllers/product_controller.dart';
-import 'package:flutter_ecommerce/views/pages/home_screen.dart';
+import 'package:flutter_ecommerce/screens/home/home_screen.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 class ProductSell extends StatefulWidget {

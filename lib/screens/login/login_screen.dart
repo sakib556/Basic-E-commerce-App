@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/const/app_colors.dart';
-import 'package:flutter_ecommerce/controllers/login/login_controller.dart';
-import 'package:flutter_ecommerce/views/pages/registration_screen.dart';
+import 'package:flutter_ecommerce/controllers/login_controller.dart';
+import 'package:flutter_ecommerce/screens/signup/registration_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 class LoginScreen extends StatelessWidget {
@@ -202,7 +202,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                             GestureDetector(
                               child: Text(
-                                " Sign Up",
+                                "Sign Up",
                                 style: TextStyle(
                                   fontSize: 13.sp,
                                   fontWeight: FontWeight.w600,

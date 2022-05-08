@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/controllers/product_controller.dart';
-import 'package:flutter_ecommerce/views/widgets/product_tile.dart';
-import 'package:flutter_ecommerce/views/pages/product_sell.dart';
+import 'package:flutter_ecommerce/screens/home/local_widgets/product_tile.dart';
+import 'package:flutter_ecommerce/screens/seller/product_sell.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 class HomeScreen extends StatelessWidget {

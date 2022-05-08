@@ -1,41 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/views/widgets/user_form.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
-  @override
-  _RegisterScreenState createState() => _RegisterScreenState();
-}
-class _RegisterScreenState extends State<RegisterScreen> {
-  TextEditingController  _emailController=TextEditingController();
-  TextEditingController _passwordController =TextEditingController();
-  signUp() async{
-    try {
-      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: _emailController.text,
-          password: _passwordController.text,
-      );
-      var authCredential=userCredential.user;
-      print(authCredential!.uid);
-      if(authCredential.uid.isNotEmpty){
-        Navigator.push(context, CupertinoPageRoute(builder: (_)=>UserForm()));
-      }
-      else{
-        Fluttertoast.showToast(msg: "Something is wrong.");
-      }
-
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        Fluttertoast.showToast(msg: "The password provided is too weak.");
-      } else if (e.code == 'email-already-in-use') {
-        Fluttertoast.showToast(msg: "The account already exists for that email.");
-      }
-    } catch (e) {
-      print(e);
-    }
-  }
+import 'package:flutter_ecommerce/controllers/signup_controller.dart';
+import 'package:get/get.dart';
+class RegisterScreen extends StatelessWidget {
+   RegisterScreen({Key? key}) : super(key: key);
+  final SignupController _signupController = Get.put(SignupController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -55,7 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       children: [
                         SizedBox(height: 20,),
                         TextField(
-                          controller: _emailController,
+                          controller: _signupController.emailController,
                           decoration: InputDecoration(
                               fillColor: Colors.grey.shade100,
                               filled: true,
@@ -63,7 +31,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),),
                         SizedBox(height: 20,),
                         TextField(
-                          controller: _passwordController,
+                          controller: _signupController.passwordController,
                           decoration: InputDecoration(
                               fillColor: Colors.grey.shade100,
                               filled: true,
@@ -79,7 +47,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               backgroundColor: Color(0xff4c505b),
                               child: IconButton(
                                 color: Colors.white,
-                                onPressed: (){signUp();},
+                                onPressed: (){_signupController.signUp();},
                                 icon: Icon(Icons.arrow_forward),
                               ),
                             )
