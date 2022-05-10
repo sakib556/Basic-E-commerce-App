@@ -204,13 +204,13 @@ class LoginScreen extends StatelessWidget {
                               child: Text(
                                 "Sign Up",
                                 style: TextStyle(
-                                  fontSize: 13.sp,
+                                  fontSize: 18.sp,
                                   fontWeight: FontWeight.w600,
                                   color: AppColors.DEEP_ORANGE,
                                 ),
                               ),
                               onTap: () {
-                                Get.put(RegisterScreen());
+                                Get.off(RegisterScreen());
                               },
                             )
                           ],
