@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/screens/%20splash/splash_screen.dart';
+import 'package:flutter_ecommerce/screens/login/login_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -24,9 +24,8 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: SplashScreen()
-            //  LoginScreen()
-            );
+            home: //SplashScreen()
+                LoginScreen());
       },
     );
   }
