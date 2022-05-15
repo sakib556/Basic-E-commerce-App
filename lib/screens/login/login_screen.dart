@@ -4,6 +4,7 @@ import 'package:flutter_ecommerce/controllers/login_controller.dart';
 import 'package:flutter_ecommerce/screens/signup/registration_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
   final LoginController _loginController = Get.put(LoginController());
@@ -31,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Sign In",
+                      "Log In",
                       style: TextStyle(fontSize: 22.sp, color: Colors.white),
                     ),
                   ],
@@ -58,12 +59,18 @@ class LoginScreen extends StatelessWidget {
                         SizedBox(
                           height: 20.h,
                         ),
-                        Text("Welcome Back", style: TextStyle(
-                              fontSize: 22.sp, color: AppColors.DEEP_ORANGE),),
-                        Text("Glad to see you back my buddy.", style: TextStyle(
+                        Text(
+                          "Welcome Back",
+                          style: TextStyle(
+                              fontSize: 22.sp, color: AppColors.DEEP_ORANGE),
+                        ),
+                        Text(
+                          "Glad to see you back my buddy.",
+                          style: TextStyle(
                             fontSize: 14.sp,
                             color: const Color(0xFFBBBBBB),
-                          ),),
+                          ),
+                        ),
                         SizedBox(
                           height: 15.h,
                         ),
@@ -88,7 +95,8 @@ class LoginScreen extends StatelessWidget {
                             ),
                             Expanded(
                               child: TextField(
-                                controller: _loginController.emailController,
+                                controller:
+                                    _loginController.emailController.value,
                                 decoration: InputDecoration(
                                   hintText: "enter your email",
                                   hintStyle: TextStyle(
@@ -128,43 +136,49 @@ class LoginScreen extends StatelessWidget {
                               width: 10.w,
                             ),
                             Expanded(
-                              child: TextField(
-                                controller: _loginController.passwordController,
-                                obscureText: _loginController.obscureText,
-                                decoration: InputDecoration(
-                                  hintText: "password must be 6 character",
-                                  hintStyle: TextStyle(
-                                    fontSize: 14.sp,
-                                    color: Color(0xFFA0A0A0),
+                              child: Obx(() {
+                                return TextField(
+                                  controller:
+                                      _loginController.passwordController.value,
+                                  obscureText:
+                                      _loginController.obscureText.value,
+                                  decoration: InputDecoration(
+                                    hintText: "password must be 6 character",
+                                    hintStyle: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: Color(0xFFA0A0A0),
+                                    ),
+                                    labelText: 'PASSWORD',
+                                    labelStyle: TextStyle(
+                                      fontSize: 15.sp,
+                                      color: AppColors.DEEP_ORANGE,
+                                    ),
+                                    suffixIcon:
+                                        _loginController.obscureText == true
+                                            ? IconButton(
+                                                onPressed: () {
+                                                  _loginController
+                                                      .obscureText(false);
+                                                },
+                                                icon: Icon(
+                                                  Icons.remove_red_eye,
+                                                  size: 20.w,
+                                                ))
+                                            : IconButton(
+                                                onPressed: () {
+                                                  _loginController
+                                                      .obscureText(true);
+                                                },
+                                                icon: Icon(
+                                                  Icons.visibility_off,
+                                                  size: 20.w,
+                                                )),
                                   ),
-                                  labelText: 'PASSWORD',
-                                  labelStyle: TextStyle(
-                                    fontSize: 15.sp,
-                                    color: AppColors.DEEP_ORANGE,
-                                  ),
-                                  suffixIcon: _loginController.obscureText == true
-                                      ? IconButton(
-                                      onPressed: () {
-                                        _loginController.obscureText = false;
-                                      },
-                                      icon: Icon(
-                                        Icons.remove_red_eye,
-                                        size: 20.w,
-                                      ))
-                                      : IconButton(
-                                      onPressed: () {
-                                        _loginController.obscureText=true;
-                                      },
-                                      icon: Icon(
-                                        Icons.visibility_off,
-                                        size: 20.w,
-                                      )),
-                                ),
-                              ),
+                                );
+                              }),
                             ),
                           ],
                         ),
-
                         SizedBox(
                           height: 50.h,
                         ),
@@ -175,16 +189,29 @@ class LoginScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text('Sign in',style: TextStyle(fontSize: 27, fontWeight: FontWeight.w700,color: Color(0xff4c505b)),),
+                            const Text(
+                              'Sign in',
+                              style: TextStyle(
+                                  fontSize: 27,
+                                  fontWeight: FontWeight.w700,
+                                  color: Color(0xff4c505b)),
+                            ),
                             CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Color(0xff4c505b),
-                              child: IconButton(
-                                color: Colors.white,
-                                onPressed: (){_loginController.signIn();},
-                                icon: Icon(Icons.arrow_forward),
-                              ),
-                            )
+                                radius: 30,
+                                backgroundColor: Color(0xff4c505b),
+                                child: Obx(() {
+                                  return IconButton(
+                                      color: Colors.white,
+                                      onPressed: () {
+                                        _loginController.isLoading == true;
+                                        _loginController.signIn();
+                                      },
+                                      icon: _loginController.isLoading == false
+                                          ? Icon(Icons.arrow_forward)
+                                          : CircularProgressIndicator(
+                                              color: Colors.white,
+                                            ));
+                                }))
                           ],
                         ),
                         SizedBox(
@@ -227,4 +254,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-

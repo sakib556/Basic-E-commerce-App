@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/screens/home/local_widgets/dashboard.dart';
 import 'package:flutter_ecommerce/screens/home/local_widgets/profile.dart';
+import 'package:flutter_ecommerce/screens/login/login_screen.dart';
 import 'package:flutter_ecommerce/screens/seller/product_sell.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var selected_index = 0;
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   void onItemTapped(int index) {
     setState(() {
       selected_index = index;
@@ -37,6 +40,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 Icons.shopping_cart,
               ),
               onPressed: () {},
+            ),
+            FloatingActionButton(
+              onPressed: () async {
+                await firebaseAuth.signOut();
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
+              },
+              child: const Icon(Icons.logout),
             )
           ],
         ),
