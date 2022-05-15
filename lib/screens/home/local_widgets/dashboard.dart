@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/controllers/product_controller.dart';
 import 'package:flutter_ecommerce/screens/home/local_widgets/product_tile.dart';
-import 'package:flutter_ecommerce/screens/seller/product_sell.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 
@@ -48,26 +47,6 @@ class DashBoard extends StatelessWidget {
               );
             }
           }),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            const Text("Do you want to sell your product ?"),
-            const SizedBox(
-              width: 10,
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(() => const ProductSell());
-              },
-              child: const CircleAvatar(
-                child: Icon(Icons.add),
-              ),
-            ),
-            const SizedBox(
-              width: 15,
-            )
-          ],
         ),
       ],
     ));

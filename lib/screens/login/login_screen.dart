@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/const/app_colors.dart';
 import 'package:flutter_ecommerce/controllers/login_controller.dart';
 import 'package:flutter_ecommerce/screens/signup/registration_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,7 +10,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.DEEP_ORANGE,
+      backgroundColor: Colors.blue,
       body: SafeArea(
         child: Column(
           children: [
@@ -60,12 +59,12 @@ class LoginScreen extends StatelessWidget {
                           height: 20.h,
                         ),
                         Text(
-                          "Welcome Back",
+                          "Welcome to Vaizans",
                           style: TextStyle(
-                              fontSize: 22.sp, color: AppColors.DEEP_ORANGE),
+                              fontSize: 22.sp, color: Color(0xff4c505b)),
                         ),
                         Text(
-                          "Glad to see you back my buddy.",
+                          "Glad to see you.",
                           style: TextStyle(
                             fontSize: 14.sp,
                             color: const Color(0xFFBBBBBB),
@@ -80,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                               height: 48.h,
                               width: 41.w,
                               decoration: BoxDecoration(
-                                  color: AppColors.DEEP_ORANGE,
+                                  color: Colors.blue,
                                   borderRadius: BorderRadius.circular(12.r)),
                               child: Center(
                                 child: Icon(
@@ -106,7 +105,7 @@ class LoginScreen extends StatelessWidget {
                                   labelText: 'EMAIL',
                                   labelStyle: TextStyle(
                                     fontSize: 15.sp,
-                                    color: AppColors.DEEP_ORANGE,
+                                    color: Colors.blue,
                                   ),
                                 ),
                               ),
@@ -122,7 +121,7 @@ class LoginScreen extends StatelessWidget {
                               height: 48.h,
                               width: 41.w,
                               decoration: BoxDecoration(
-                                  color: AppColors.DEEP_ORANGE,
+                                  color: Colors.blue,
                                   borderRadius: BorderRadius.circular(12.r)),
                               child: Center(
                                 child: Icon(
@@ -151,7 +150,7 @@ class LoginScreen extends StatelessWidget {
                                     labelText: 'PASSWORD',
                                     labelStyle: TextStyle(
                                       fontSize: 15.sp,
-                                      color: AppColors.DEEP_ORANGE,
+                                      color: Colors.blue,
                                     ),
                                     suffixIcon:
                                         _loginController.obscureText == true
@@ -229,11 +228,11 @@ class LoginScreen extends StatelessWidget {
                             ),
                             GestureDetector(
                               child: Text(
-                                "Sign Up",
+                                " Sign Up",
                                 style: TextStyle(
-                                  fontSize: 18.sp,
+                                  fontSize: 16.sp,
                                   fontWeight: FontWeight.w600,
-                                  color: AppColors.DEEP_ORANGE,
+                                  color: Colors.blue,
                                 ),
                               ),
                               onTap: () {
