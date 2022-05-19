@@ -11,12 +11,6 @@ import 'local_widgets/seller/product_sell.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-  // void onItemTapped(int index) {
-  //   setState(() {
-  //     selected_index = index;
-  //   });
-  //   print("tapped item $selected_index");
-  // }
   static List<Widget> widgetOptions = <Widget>[
     DashBoard(),
     ProductSell(),
