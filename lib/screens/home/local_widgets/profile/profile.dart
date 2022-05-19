@@ -7,7 +7,6 @@ class Profile extends StatelessWidget {
   final SignupController _signupController = Get.put(SignupController());
   @override
   Widget build(BuildContext context) {
-    _signupController.verifyCheck();
     return Container(
       child: Center(
         child: Column(
