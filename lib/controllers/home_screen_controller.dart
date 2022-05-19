@@ -1,4 +1,4 @@
-import 'package:flutter_ecommerce/controllers/signup_controllert.dart';
+import 'package:flutter_ecommerce/controllers/signup_controller.dart';
 import 'package:get/get.dart';
 
 class HomeScreenController extends GetxController {
