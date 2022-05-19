@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/controllers/signup_controller.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -33,9 +34,6 @@ class RegisterScreen extends StatelessWidget {
                     left: 35),
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 20,
-                    ),
                     TextField(
                       controller: _signupController.emailController,
                       decoration: InputDecoration(
@@ -60,6 +58,18 @@ class RegisterScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
+                    TextField(
+                      controller: _signupController.cpasswordController,
+                      decoration: InputDecoration(
+                          fillColor: Colors.grey.shade100,
+                          filled: true,
+                          hintText: 'Confirm Password',
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10))),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -76,7 +86,13 @@ class RegisterScreen extends StatelessWidget {
                           child: IconButton(
                             color: Colors.white,
                             onPressed: () {
-                              // _signupController.signUp();
+                              if (_signupController.passwordController.value ==
+                                  _signupController.cpasswordController.value) {
+                                _signupController.signUp();
+                              } else {
+                                Fluttertoast.showToast(
+                                    msg: "Enter the same password");
+                              }
                             },
                             icon: const Icon(Icons.arrow_forward),
                           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/controllers/login_controller.dart';
+import 'package:flutter_ecommerce/screens/login/reset_password.dart';
 import 'package:flutter_ecommerce/screens/signup/registration_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -179,12 +180,28 @@ class LoginScreen extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          height: 50.h,
+                          height: 20.h,
                         ),
-                        //  elevated button
-                        //   customButton("Sign In", (){
-                        //     signIn();
-                        //   },),
+                        Wrap(
+                          children: [
+                            GestureDetector(
+                              child: Text(
+                                " Forget Password",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              onTap: () {
+                                Get.to(ResetPasswordScreen());
+                              },
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -236,7 +253,7 @@ class LoginScreen extends StatelessWidget {
                                 ),
                               ),
                               onTap: () {
-                                Get.off(RegisterScreen());
+                                Get.to(RegisterScreen());
                               },
                             )
                           ],

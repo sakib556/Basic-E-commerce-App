@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/controllers/product_controller.dart';
-import 'package:flutter_ecommerce/screens/home/local_widgets/product_tile.dart';
+import 'package:flutter_ecommerce/screens/home/local_widgets/dashboard/product_tile.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 

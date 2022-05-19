@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/screens/home/local_widgets/dashboard.dart';
-import 'package:flutter_ecommerce/screens/home/local_widgets/profile.dart';
+import 'package:flutter_ecommerce/screens/home/local_widgets/dashboard/dashboard.dart';
+import 'package:flutter_ecommerce/screens/home/local_widgets/profile/profile.dart';
 import 'package:flutter_ecommerce/screens/login/login_screen.dart';
-import 'package:flutter_ecommerce/screens/seller/product_sell.dart';
+
+import 'local_widgets/seller/product_sell.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
