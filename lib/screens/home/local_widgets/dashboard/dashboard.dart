@@ -30,7 +30,6 @@ class DashBoard extends StatelessWidget {
         ),
         Expanded(
           child: Obx(() {
-            print("start obx");
             if (productController.isLoading.value) {
               return const Center(child: CircularProgressIndicator());
             } else {
@@ -40,7 +39,6 @@ class DashBoard extends StatelessWidget {
                 crossAxisSpacing: 2,
                 mainAxisSpacing: 2,
                 itemBuilder: (context, index) {
-                  print("start 2 obx");
                   return ProductTile(productController.productList[index]);
                 },
                 staggeredTileBuilder: (index) => const StaggeredTile.fit(1),

@@ -71,4 +71,6 @@ class LoginController extends GetxController {
       isLoading(false);
     }
   }
+
+  var screenwidth = 0.obs;
 }
