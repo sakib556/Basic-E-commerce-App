@@ -8,8 +8,8 @@ class ProductController extends GetxController {
     isLoading = true.obs;
     print("fetching start");
     isLoading(true);
-      var products = await RemoteServices.fetchProducts();
-      if (products != null) {
+    var products = await RemoteServices.fetchProducts();
+    if (products != null) {
         productList.value = products;
         isLoading(false);
       }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/models/product.dart';
 class ProductTile extends StatelessWidget {
+  const ProductTile(this.product, {Key? key}) : super(key: key);
   final Product product;
-  const ProductTile(this.product);
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 90,
       height: 290,
       child: Card(
@@ -27,7 +27,7 @@ class ProductTile extends StatelessWidget {
                    // child: Image.asset("assets/images/product.jpg"),
                     child: Image.network("https://mir-s3-cdn-cf.behance.net/projects/404/40e864138787243.Y3JvcCwxNDcyLDExNTEsMCwyNQ.jpg"),
                   ),
-                  Positioned(
+                  const Positioned(
                     right: 0,
                     child: CircleAvatar(
                       backgroundColor: Colors.white38,
@@ -36,15 +36,15 @@ class ProductTile extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 product.productName.toString(),
                 maxLines: 2,
                 style:
-                TextStyle(fontFamily: 'avenir', fontWeight: FontWeight.w800,fontSize: 14),
+                const TextStyle(fontFamily: 'avenir', fontWeight: FontWeight.w800,fontSize: 14),
                 overflow: TextOverflow.ellipsis,
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               // if (product.rating != null)
               Container(
                   decoration: BoxDecoration(
@@ -54,8 +54,8 @@ class ProductTile extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
+                    children: const[
+                       Text(
                         "5",
                         style: TextStyle(color: Colors.white),
                       ),
@@ -67,9 +67,9 @@ class ProductTile extends StatelessWidget {
                     ],
                   ),
                 ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text('৳${product.price}',
-                  style: TextStyle(fontSize: 16)),
+                  style: const TextStyle(fontSize: 16)),
             ],
           ),
         ),

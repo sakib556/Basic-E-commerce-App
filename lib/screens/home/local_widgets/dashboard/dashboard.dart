@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/controllers/product_controller.dart';
 import 'package:flutter_ecommerce/screens/home/local_widgets/dashboard/product_tile.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 
 class DashBoard extends StatelessWidget {
@@ -33,15 +32,11 @@ class DashBoard extends StatelessWidget {
             if (productController.isLoading.value) {
               return const Center(child: CircularProgressIndicator());
             } else {
-              return StaggeredGridView.countBuilder(
-                crossAxisCount: 2,
+              return ListView.builder(
                 itemCount: productController.productList.length,
-                crossAxisSpacing: 2,
-                mainAxisSpacing: 2,
                 itemBuilder: (context, index) {
                   return ProductTile(productController.productList[index]);
                 },
-                staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
               );
             }
           }),

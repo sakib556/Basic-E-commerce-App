@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/controllers/splash_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,7 +29,7 @@ class SplashScreen extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              Icon(
+              const Icon(
                 Icons.airplanemode_active,
                 color: Colors.white,
                 size: 80,
