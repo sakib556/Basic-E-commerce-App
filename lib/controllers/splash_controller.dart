@@ -8,13 +8,12 @@ import 'package:get/get.dart';
 
 class SplashController extends GetxController {
   final ProductController productController = Get.put(ProductController());
-  // await productController.fetchProducts();
   FirebaseAuth? _authentication;
   User? user;
   bool isLoading = true;
   Future splashTimer() async {
-    await Timer(Duration(seconds: 2), () => navigateScreen());
     await productController.fetchProducts();
+    Timer(const Duration(seconds: 2), () => navigateScreen());
   }
 
   navigateScreen() {

@@ -10,16 +10,17 @@ import 'local_widgets/seller/product_sell.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
-  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   static List<Widget> widgetOptions = <Widget>[
     DashBoard(),
-    ProductSell(),
+    const ProductSell(),
     Profile()
   ];
   final HomeScreenController _homeScreenController =
       Get.put(HomeScreenController());
   @override
   Widget build(BuildContext context) {
+      FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
