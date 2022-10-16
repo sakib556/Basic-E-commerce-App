@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/models/product.dart';
 class ProductTile extends StatelessWidget {
-  const ProductTile(this.product, {Key? key, required this.index}) : super(key: key);
-  final Product product;
-  final int index;
+  const ProductTile(this.product, {Key? key}) : super(key: key);
+  final Stackdatum product;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -39,7 +38,7 @@ class ProductTile extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                product.stackdata[index].productName,
+                product.productName,
                 maxLines: 2,
                 style:
                 const TextStyle(fontFamily: 'avenir', fontWeight: FontWeight.w800,fontSize: 14),
@@ -68,7 +67,7 @@ class ProductTile extends StatelessWidget {
                   ),
                 ),
               const SizedBox(height: 8),
-              Text('৳${product.stackdata[index].price}',
+              Text('৳${product.price}',
                   style: const TextStyle(fontSize: 16)),
             ],
           ),
