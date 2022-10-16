@@ -13,21 +13,17 @@ class GetProductController extends GetxController {
     isLoading.value = true;
     try {
       String url = "https://vaizans.com/PHP_API/show_sellers_product.php";
-             print("data go 1");
       var response = await Dio().get(url);
-       print("data go 2");
       if (response.statusCode == 200) {
-                  print("data get 1");
-                  print("object : $response \n");
          productModel.value = Product.fromMap(json.decode(response.data));
           print("data get 2");
-        //productList.value = Product.fromJson(response.data);
+        productList.value = productModel.value.stackdata;
       } else {
         print("fetching null");
       }
       isLoading.value = false;
     } catch (e) {
-      print("error gets $e");
+      print("error : $e");
     }
   }
 }

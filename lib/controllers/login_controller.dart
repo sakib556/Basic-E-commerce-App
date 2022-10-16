@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/controllers/product_controller/get_product_controller.dart';
-import 'package:flutter_ecommerce/screens/home/home_screen.dart';
+import 'package:flutter_ecommerce/screens/Tab/bottom_navbar_screen.dart';
 import 'package:flutter_ecommerce/screens/login/login_screen.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -25,7 +25,7 @@ class LoginController extends GetxController {
       if (authCredential.uid.isNotEmpty) {
         await productController.fetchProducts();
         isLoading(false);
-        Get.offAll(HomeScreen());
+        Get.offAll(BottomNavbarScreen());
       } else {
         isLoading(false);
         Fluttertoast.showToast(msg: "Something is wrong");
