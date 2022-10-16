@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/controllers/product_controller.dart';
+import 'package:flutter_ecommerce/controllers/product_controller/get_product_controller.dart';
 import 'package:flutter_ecommerce/screens/home/home_screen.dart';
 import 'package:flutter_ecommerce/screens/login/login_screen.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -12,7 +12,7 @@ class LoginController extends GetxController {
   var resetEmailController = TextEditingController().obs;
   var passwordController = TextEditingController().obs;
   var isLoading = false.obs;
-  final ProductController productController = Get.put(ProductController());
+  final GetProductController productController = Get.put(GetProductController());
   signIn() async {
     isLoading(true);
     try {
