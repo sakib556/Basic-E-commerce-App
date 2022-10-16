@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
       Get.put(HomeScreenController());
   @override
   Widget build(BuildContext context) {
-      FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
     return Scaffold(
         appBar: AppBar(

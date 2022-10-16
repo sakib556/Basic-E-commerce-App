@@ -4,7 +4,7 @@ import 'package:flutter_ecommerce/models/product.dart';
 import 'package:get/state_manager.dart';
 
 class AddProductController extends GetxController {
-  var isLoading = false.obs;
+var isLoading = false.obs;
   var productList = <Stackdatum>[].obs;
   var productModel = Product(stackdata: []).obs;
 
@@ -13,10 +13,13 @@ class AddProductController extends GetxController {
     isLoading.value = true;
     try {
       String url = "https://vaizans.com/PHP_API/show_sellers_product.php";
+             print("data go 1");
       var response = await Dio().get(url);
+       print("data go 2");
       if (response.statusCode == 200) {
+                  print("data get 1");
          productModel.value = Product.fromMap(response.data);
-          print("data get");
+          print("data get 2");
         //productList.value = Product.fromJson(response.data);
       } else {
         print("fetching null");
