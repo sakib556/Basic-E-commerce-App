@@ -33,7 +33,7 @@ class DashBoard extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         } else {
           return ListView.builder(
-            itemCount: productController.productList.length,
+            itemCount: productController.productModel.value.stackdata.length,
             itemBuilder: (context, index) {
               return ProductTile(
                 productController.productModel.value,
