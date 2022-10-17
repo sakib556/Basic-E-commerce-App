@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/controllers/product_controller.dart';
-import 'package:flutter_ecommerce/screens/Tab/bottom_navbar_screen.dart';
+import 'package:flutter_ecommerce/screens/tabs/bottom_navbar_screen.dart';
 import 'package:flutter_ecommerce/screens/login/login_screen.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
