@@ -27,7 +27,7 @@ class ProductController extends GetxController {
     }
   }
 
-  Future<void> insertProduct() async {
+  Future<void> insertProduct(Stackdatum product)async {
      String url = "https://vaizans.com/PHP_API/add_sellers_product.php";
   //   await http.post(Uri.parse(url), body: {
   //     "pname": pname,
