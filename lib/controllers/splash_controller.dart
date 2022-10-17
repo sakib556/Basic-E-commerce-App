@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_ecommerce/controllers/product_controller/get_product_controller.dart';
+import 'package:flutter_ecommerce/controllers/product_controller.dart';
 import 'package:flutter_ecommerce/screens/Tab/bottom_navbar_screen.dart';
 import 'package:flutter_ecommerce/screens/login/login_screen.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
-  final GetProductController productController = Get.put(GetProductController());
+  final ProductController productController = Get.put(ProductController());
   FirebaseAuth? _authentication;
   User? user;
   bool isLoading = true;

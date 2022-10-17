@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/screens/custom_widgets/text_field_1.dart';
+import 'package:flutter_ecommerce/screens/custom_widgets/simple_textfield.dart';
 class UserForm extends StatefulWidget {
   const UserForm({Key? key}) : super(key: key);
   @override

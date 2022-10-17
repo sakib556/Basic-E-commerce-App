@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/controllers/product_controller/get_product_controller.dart';
+import 'package:flutter_ecommerce/controllers/product_controller.dart';
 import 'package:flutter_ecommerce/screens/Tab/home/components/product_tile.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
-  final GetProductController productController =
-      Get.put(GetProductController());
+  final ProductController productController =
+      Get.put(ProductController());
   @override
   Widget build(BuildContext context) {
     return Column(

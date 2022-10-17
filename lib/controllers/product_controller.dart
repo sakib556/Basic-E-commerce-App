@@ -3,12 +3,12 @@ import 'package:dio/dio.dart';
 import 'package:flutter_ecommerce/models/product.dart';
 import 'package:get/state_manager.dart';
 
-class GetProductController extends GetxController {
+class ProductController extends GetxController {
  var isLoading = false.obs;
   var productList = <Stackdatum>[].obs;
   var productModel = Product(stackdata: []).obs;
 
-  fetchProducts() async {
+  Future<void> fetchProducts() async {
     print("fetching start");
     isLoading.value = true;
     try {
@@ -26,6 +26,25 @@ class GetProductController extends GetxController {
       print("error : $e");
     }
   }
+
+  Future<void> insertProduct() async {
+     String url = "https://vaizans.com/PHP_API/add_sellers_product.php";
+  //   await http.post(Uri.parse(url), body: {
+  //     "pname": pname,
+  //     "price": pprice,
+  //     "discount": pdiscount,
+  //     "brand": pbrand,
+  //     "quantity": pqty,
+  //     "quantity_type": qtyType,
+  //     "product_details": pdetails
+  //   });
+  //   setState(() {
+  //     addData = 0;
+  //   });
+  //   productController.isLoading.value;
+  //   await productController.fetchProducts();
+  //   Get.off(BottomNavbarScreen());
+ }
 }
 
 List<Stackdatum> dataFromProduct(String data) => List<Stackdatum>.from(
